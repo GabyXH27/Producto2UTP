@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Instalar dependencias del sistema
+# Install system dependencies
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends some-package
+sudo apt-get install -y --no-install-recommends <your_package>  # REPLACE <your_package> WITH AN ACTUAL PACKAGE
 
-# Configurar variables de entorno
-export API_KEY="your_api_key"
+# Set environment variables
+export API_KEY="your_api_key" # CONSIDER USING GITHUB SECRETS INSTEAD OF HARDCODING
 
-# Crear directorios necesarios
-mkdir -p /path/to/release/environment
+# Create necessary directories
+mkdir -p /opt/app/release  # REPLACE THIS WITH YOUR ACTUAL DEPLOYMENT PATH
 
-echo "Entorno de liberación configurado."
+echo "Release environment configured."
