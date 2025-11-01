@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master  # O cambia a 'master' si tu rama principal se llama así
 
 jobs:
   build:
@@ -54,5 +54,4 @@ jobs:
 
       - name: Deploy
         run: |
-          # Replace this with your actual deployment logic
           echo "Deploying..."
