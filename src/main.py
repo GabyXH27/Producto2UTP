@@ -25,12 +25,15 @@ def add_numbers(a: float, b: float) -> float:
         float: The result of adding a and b.
     """
     return a + b
+
+
 def main() -> None:
     """Run the main program logic."""
     user_name = "Gaby"
     print(greet_user(user_name))
     print(f"The sum of 5 + 3 is {add_numbers(5, 3)}")
+
+
 if __name__ == "__main__":
     main()
 
-    
