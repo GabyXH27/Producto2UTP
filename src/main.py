@@ -1,5 +1,6 @@
 """Main module for the application."""
 
+
 def greet_user(name: str) -> str:
     """
     Return a greeting message for the given user.
@@ -36,4 +37,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
