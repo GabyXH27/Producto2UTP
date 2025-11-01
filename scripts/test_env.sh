@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Ejecutar pruebas unitarias
-pytest /path/to/tests
+# Run unit tests
+pytest tests/unit  # REPLACE WITH THE PATH TO YOUR UNIT TESTS
 
-# Ejecutar pruebas de integración
-python /path/to/integration_tests.py
+# Run integration tests
+python tests/integration/integration_tests.py  # REPLACE WITH THE PATH TO YOUR INTEGRATION TESTS
 
-echo "Pruebas en el entorno de liberación completadas."
+echo "Tests in release environment completed."
