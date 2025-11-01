@@ -1,4 +1,10 @@
-from src.main import add_numbers, greet_user
+import sys
+from pathlib import Path
+
+# Añadir la carpeta src al path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from main import add_numbers, greet_user
 
 
 def test_add_numbers():
