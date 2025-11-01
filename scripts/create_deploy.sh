@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Crear directorio para el paquete de despliegue
+# Create deployment package directory
 mkdir -p deploy_package
 
-# Copiar archivos necesarios
-cp -r /path/to/application/* deploy_package/
+# Copy necessary files
+cp -r ./* deploy_package/  #  MAKE SURE THIS COPIES THE CORRECT FILES
 
-# Comprimir el paquete
+# Compress the package
 tar -czvf deploy.tar.gz deploy_package
 
-echo "Paquete de despliegue generado."
+echo "Deployment package generated."
