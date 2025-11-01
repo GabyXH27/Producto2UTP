@@ -43,7 +43,7 @@ jobs:
       - name: Set up environment
         run: |
           chmod +x scripts/setup_env.sh
-./scripts/setup_env.sh
+            ./scripts/setup_env.sh
 
       - name: Test environment
         run: |
