@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Se ejecuta en cada push a la rama principal
+      - main
 
 jobs:
   build:
@@ -16,15 +16,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.14'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Run linters
         run: |
-          flake8 .
-          pylint .
+          flake8 . || exit 1
+          pylint . || exit 1
 
       - name: Run tests
         run: pytest
@@ -54,5 +54,5 @@ jobs:
 
       - name: Deploy
         run: |
-          # Aquí iría el script de despliegue específico a tu entorno
+          # Replace this with your actual deployment logic
           echo "Deploying..."
