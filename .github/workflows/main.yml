@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Se ejecuta en cada push a la rama principal
+      - main
 
 jobs:
   build:
@@ -16,13 +16,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.14'
+          python-version: '3.12' # Or 3.10 or 3.11
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Install flake8
-        run: pip install flake8  # Asegúrate de que flake8 esté instalado
 
       - name: Run linters
         run: |
@@ -43,7 +40,7 @@ jobs:
       - name: Set up environment
         run: |
           chmod +x scripts/setup_env.sh
-            ./scripts/setup_env.sh
+          ./scripts/setup_env.sh
 
       - name: Test environment
         run: |
@@ -57,5 +54,5 @@ jobs:
 
       - name: Deploy
         run: |
-          # Aquí iría el script de despliegue específico a tu entorno
+          #  REPLACE THIS WITH YOUR ACTUAL DEPLOYMENT SCRIPT
           echo "Deploying..."
