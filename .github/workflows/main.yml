@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Se ejecuta en cada push a la rama principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run linters
+        run: |
+          flake8 .
+          pylint .
+
+      - name: Run tests
+        run: pytest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          chmod +x scripts/setup_env.sh
+          ./scripts/setup_env.sh
+
+      - name: Test environment
+        run: |
+          chmod +x scripts/test_env.sh
+          ./scripts/test_env.sh
+
+      - name: Create deployment package
+        run: |
+          chmod +x scripts/create_deploy.sh
+          ./scripts/create_deploy.sh
+
+      - name: Deploy
+        run: |
+          # Aquí iría el script de despliegue específico a tu entorno
+          echo "Deploying..."
