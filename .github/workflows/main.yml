@@ -23,7 +23,7 @@ jobs:
 
       - name: Run linters
         run: |
-            run: flake8 src || exit 1
+            flake8 src || exit 1
             pylint . || exit 1
 
       - name: Run tests
